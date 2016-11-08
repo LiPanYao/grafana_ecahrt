@@ -1,0 +1,113 @@
+<div style="max-height:{{ctrl.height}}">
+	<div ng-if="ctrl.panel.mode === 'alarmInfo'">
+		<div class="table-panel-container">
+			<div class="table-panel-header-bg"></div>
+			<div class="table-panel-scroll">
+				<table class="table-panel-table">
+					<thead>
+						<tr>
+							<th>
+								<div class="table-panel-table-header-inner pointer">告警级别</div>
+							</th>
+							<th>
+								<div class="table-panel-table-header-inner pointer">最小值</div>
+							</th>
+							<th>
+								<div class="table-panel-table-header-inner pointer">最大值</div>
+							</th>
+						</tr>
+					</thead>
+					<tr ng-repeat="col in ctrl.data">
+						<td>{{col.level}}</td>
+						<td>{{col.min}}</td>
+						<td>{{col.max}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div ng-if="ctrl.panel.mode === 'relativeInfo'">
+		<div class="table-panel-container">
+			<div class="table-panel-header-bg"></div>
+			<div class="table-panel-scroll">
+				<table class="table-panel-table">
+					<thead>
+						<tr>
+							<th>
+								<div class="table-panel-table-header-inner pointer">名 称</div>
+							</th>
+							<th style="min-width:50px;">
+								<div class="table-panel-table-header-inner pointer">实时值</div>
+							</th>
+							<th style="min-width:15px;">
+								<div class="table-panel-table-header-inner pointer">单位</div>
+							</th>
+						</tr>
+					</thead>
+					<tr ng-repeat="col in ctrl.data">
+						<td>{{col.name}}</td>
+						<td>{{col.Va}}</td>
+						<td>{{col.unit}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div ng-if="ctrl.panel.mode === 'commonData'">
+		<div ng-if="ctrl.panel.DT === 'show'">
+			<div class="table-panel-container">
+				<div class="table-panel-header-bg"></div>
+				<div class="table-panel-scroll">
+					<table class="table-panel-table">
+						<thead>
+							<tr>
+								<th>
+									<div class="table-panel-table-header-inner pointer">名称</div>
+								</th>
+								<th>
+									<div class="table-panel-table-header-inner pointer"> 值 </div>
+								</th>
+								<th>
+									<div class="table-panel-table-header-inner pointer">时间</div>
+								</th>
+							</tr>
+						</thead>
+						<tr ng-repeat="col in ctrl.data">
+							<td><a href="{{ctrl.panel.url}}?{{col.target}}">{{col.target}}</a></td>
+							<td>{{col.Fdata}}</td>
+							<td>{{col.times}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div ng-if="ctrl.panel.DT === 'hidden'">
+			<div class="table-panel-container">
+				<div class="table-panel-header-bg"></div>
+				<div class="table-panel-scroll">
+					<table class="table-panel-table">
+						<thead>
+							<tr>
+								<th>
+									<div class="table-panel-table-header-inner pointer">名称</div>
+								</th>
+								<th>
+									<div class="table-panel-table-header-inner pointer"> 值 </div>
+								</th>
+							</tr>
+						</thead>
+						<tr ng-repeat="col in ctrl.data">
+							<td><a href="{{ctrl.panel.url}}?{{col.target}}">{{col.target}}</a></td>
+							<td>{{col.Fdata}}</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+</div>
